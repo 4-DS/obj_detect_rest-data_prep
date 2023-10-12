@@ -2,14 +2,12 @@
     "pipeline_params":
     {
         "env_name":"user",
-        "pipeline_name":"pipeline",
-        "zone_name":"zone",
-        "X": "something"
+        "pipeline_name":"yolox_mmdet",
+        "zone_name":"test"
     },
     "step_params":
     {
-        "Y": "something_else",
-        "step_name": "step_template"
+        "step_name": "1_data_import"
     },
     "substeps_params":
     [
