@@ -15,8 +15,8 @@
             "substep_name":"substep_full.ipynb",
             "params":
             {
-                "param1":"None1",
-                "param2":"None2"
+                "FILTER_EMPTY_GT":false,
+                "MIN_OBJECT_SIZE":5
             }
         }
     ]

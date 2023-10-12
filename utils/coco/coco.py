@@ -45,7 +45,6 @@ def preview_coco_file(coco_file, img_folder=None, count=1, random=True, return_i
 
     for image in images:
         image_title = image.get('file_name')
-
         if image.get('numpy') is not None:
             vis_img = image.get('numpy')
         else:
@@ -68,13 +67,12 @@ def preview_coco_file(coco_file, img_folder=None, count=1, random=True, return_i
 
         _categories = {_cat['id']: _i for _i,
                        _cat in enumerate(coco_data['categories'])}
-
+        
         count = 0
-        for ann_idx, ann in enumerate(coco_data.get('annotations', [])):
+        for ann_idx, ann in enumerate(coco_data.get('annotations', [])):            
             if max_objects is not None:
                 if count > max_objects:
-                    break
-
+                    break            
             if ann.get('image_id') == image['id']:
                 count += 1
                 item['gt_masks'].append(
