@@ -13,7 +13,7 @@
     [
         {
             "substep_name":"step_data_import.ipynb",
-            "params":
+            "substep_params":
             {
                 "FILTER_EMPTY_GT":false,
                 "MIN_OBJECT_SIZE":5
