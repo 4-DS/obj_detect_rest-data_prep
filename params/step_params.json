@@ -12,7 +12,13 @@
     "substeps_params":
     [
         {
-            "substep_name":"step_data_import.ipynb",
+            "substep_name":"0_data_load.ipynb",
+            "substep_params":
+            {
+            }
+        },
+        {
+            "substep_name":"1_data_prep.ipynb",
             "substep_params":
             {
                 "FILTER_EMPTY_GT":false,
