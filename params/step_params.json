@@ -7,7 +7,7 @@
     },
     "step_params":
     {
-        "step_name": "1_data_import"
+        "step_name": "data_import"
     },
     "substeps_params":
     [
