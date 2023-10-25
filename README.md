@@ -1,4 +1,4 @@
-![interface data_import_inteface.drawio](./imgs/data_import_inteface.drawio.png)
+![interface data_load](./imgs/data_load_inteface.drawio.png)
 
 ### add sinara module  
 ```
@@ -15,15 +15,21 @@ git submodule init
 git submodule update --remote --merge
 ```
 
-# Компонента CV-Pipeline: data_import
+# Step CV-Pipeline: data_load
 
-Загрузка данных из различных источников, выбор данных для модели, разделение данных на train, val, test, data exploration.
+Предназначен для загрузка данных из различных источников
+В данном примере загружает датасет [`COCO`](http://images.cocodataset.org/).   
+Для более быстрого запуска и прогона cv-pipeline используем валидационную часть датасета (~1 Гб)
+http://images.cocodataset.org/zips/val2017.zip
+и аннотации к ним http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+При желании можно использовать полный датасет COCO: http://images.cocodataset.org/zips/train2017.zip
+указав ссылку на него в конфигурационном файле params/step_params.json
+
+
+
 
 Данный компонент создается из [шаблона](https://github.com/4-DS/step_template).
-
-Этот и последующие компоненты будут создаваться из клонированием [шаблона](https://git.nlmk.com/dsml_components/libs/dsml_component_template).
-
-Чтобы не забывать про обязательные ячейки в каждом ноутбуке, проще всего создавать новые ноутбуки просто копированием [`substep_full.ipynb`](https://github.com/4-DS/step_template/blob/main/substep_full.ipynb) из стандартного [шаблона](https://git.nlmk.com/dsml_components/libs/dsml_component_template) компоненты.
+Чтобы не забывать про обязательные ячейки в каждом ноутбуке, проще всего создавать новые ноутбуки просто копированием [`substep_full.ipynb`](https://github.com/4-DS/step_template/blob/main/substep_full.ipynb) из стандартного [шаблона](https://github.com/4-DS/step_template) компоненты.
 
 Данная компонента разделяется на несколько sub_steps: 
 - 0_data_load.ipynb 
