@@ -100,8 +100,6 @@ def display_once(
     for item_id in item_idx:
         item = dataset[item_id]
 
-        # print(f"{item=}")
-
         if use_mask:
             gt_masks = item.get("gt_masks", None)
 

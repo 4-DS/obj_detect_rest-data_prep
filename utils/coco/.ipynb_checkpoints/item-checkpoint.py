@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 
 from mmdet.core.visualization import imshow_det_bboxes
 from mmdet.core.utils import mask2ndarray
+import mmcv
 
 from .encoder import dump
 from .slicer import cut_by_max_size
@@ -184,29 +185,43 @@ def item_to_coco(dataset, idx, output_dir, max_size, cat_ids, clases, overlap=0.
         return Exception('stop_on_error')
 
 
-def show_item(dataset, item_id, bbox_color=(255, 102, 61), text_color=(255, 102, 61), class_names=None, return_image=False, title=None):
+def show_item(dataset, item_id, bbox_color=(255, 102, 61), text_color=(255, 102, 61), class_names=None, return_image=False, title=None, show_mask=False):
     item = dataset[item_id]
     # print(item)
-
-    gt_masks = item.get('gt_masks')
-    if type(gt_masks) is not np.ndarray:
-        gt_masks = mask2ndarray(gt_masks)
+    
+    if show_mask:
+        gt_masks = item.get('gt_masks')
+        if type(gt_masks) is not np.ndarray:
+            gt_masks = mask2ndarray(gt_masks)
+    else:
+        gt_masks=None
 
     if class_names is None:
         class_names = dataset.CLASSES
-
-    out_image = imshow_det_bboxes(
-        item["img"],
-        item["gt_bboxes"],
-        item["gt_labels"],
-        gt_masks,
-        class_names=class_names,
-        show=False,
-        font_size=14,
-        wait_time=0,
-        bbox_color=bbox_color,
-        text_color=text_color,
-    )
+    
+    gt_bboxes = item["gt_bboxes"]
+    gt_labels = item["gt_labels"]
+    if len(gt_bboxes)==0:
+        gt_bboxes = None
+        
+    if (gt_bboxes is None) and (gt_masks is None):
+        out_image = mmcv.imread(item["img"]).astype(np.uint8)
+        out_image = mmcv.bgr2rgb(out_image)
+        width, height = out_image.shape[1], out_image.shape[0]
+        out_image = np.ascontiguousarray(out_image)    
+    else:
+        out_image = imshow_det_bboxes(
+            item["img"],
+            gt_bboxes,
+            gt_labels,
+            gt_masks,
+            class_names=class_names,
+            show=False,
+            font_size=14,
+            wait_time=0,
+            bbox_color=bbox_color,
+            text_color=text_color,
+        )
 
     if return_image:
         return out_image
@@ -218,3 +233,6 @@ def show_item(dataset, item_id, bbox_color=(255, 102, 61), text_color=(255, 102,
 
     plt.imshow(out_image)
     plt.show()
+
+    
+    

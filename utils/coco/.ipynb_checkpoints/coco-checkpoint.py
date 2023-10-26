@@ -16,6 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 def segm_to_mask(segm, image):
+    # try:
     assert type(segm) is list, 'segm not list'
     if type(segm[0]) is not list:
         segm = [segm]
@@ -75,8 +76,11 @@ def preview_coco_file(coco_file, img_folder=None, count=1, random=True, return_i
                     break            
             if ann.get('image_id') == image['id']:
                 count += 1
-                item['gt_masks'].append(
-                    segm_to_mask(ann["segmentation"], image))
+                try:
+                    item['gt_masks'].append(
+                        segm_to_mask(ann["segmentation"], image))
+                except:
+                    pass
 
                 x1, y1, w, h = ann["bbox"]
                 item['gt_bboxes'].append([x1, y1, x1+w, y1+h])
