@@ -3,42 +3,48 @@
 
 # Step CV-Pipeline: data_prep
 
-Данная компонент CV-Pipeline предназначен для обработку датасета: проверка и чистка датасета, преобразования разметки, разделение на train, valid и test выборки датасетов, обзор и обработка данных.
+This CV-Pipeline component is designed for processing the dataset: checking and cleaning the dataset, transforming the markup, dividing dataset samples into train, valid and test, reviewing and processing data.
 
-Создается на основе [шаблона](https://github.com/4-DS/step_template).
-Чтобы не забывать про обязательные ячейки в каждом ноутбуке, проще всего создавать новые ноутбуки просто копированием [`substep_full.ipynb`](https://github.com/4-DS/step_template/blob/main/substep_full.ipynb) из стандартного [шаблона](https://github.com/4-DS/step_template) компоненты.
+Created based on [template](https://github.com/4-DS/step_template).
+In order not to forget about the required cells in each laptop, the easiest way to create new jupyter notebooks is simply by copying [`substep_full.ipynb`](https://github.com/4-DS/step_template/blob/main/substep_full.ipynb) from standard [template](https://github.com/4-DS/step_template).
 
-Конечным выходом работы данного step CV-Pipeline является
+Input data for step CV-Pipeline: data_prep
+- **images**     
+images of the downloaded dataset (saved as spark parquets)
+- **annotations**    
+annotation files of the downloaded dataset
+
+The final output of this step CV-Pipeline is
 - **train_data**     
-изображения тренировочного датасета (сохранен как spark parquets)
+training dataset images (saved as spark parquets)
 - **eval_data**    
-изображения валидационного датасета (сохранен как spark parquets)
+validation dataset images (saved as spark parquets)
 - **test_data**    
-изображения тестового датасета (сохранен как spark parquets)
+test dataset images (saved as spark parquets)
 - **train_val_config**    
-файлы аннотации для тренировочного и валидационного датасета и необходимый конфигурационный файл для последующей тренировки
+annotation files for the training and validation dataset and the necessary configuration file for subsequent training
 - **test_config**    
-файлы аннотации для тестового датасета и необходимый конфигурационный файл для запуска тестирования
+annotation files for the test dataset and the necessary configuration file to run testing
 
-## Add sinara
+## How to run a step CV-Pipeline: data_prep
 
-### clone repository 
+### Create a directory for the project (or use an existing one)
 ```
-git clone https://gitlab.com/yolox_mmdet/data_prep.git
-cd data_load
+mkdir yolox_mmdet
+cd yolox_mmdet
 ```  
 
-### add sinara module  
+### clone the repository: data_prep
 ```
-git submodule add https://github.com/4-DS/sinara.git sinara
+git clone --recurse-submodules https://gitlab.com/yolox_mmdet/data_prep.git {data_prep}
+cd model_train
 ```  
 
-### init DSML module  
+### run step CV-Pipeline:data_prep
 ```
-git submodule init
+python step.dev.py
+```  
+or
 ```
-
-### update to latest DSML module
-```
-git submodule update --remote --merge
-```
+step.prod.py
+``` 
