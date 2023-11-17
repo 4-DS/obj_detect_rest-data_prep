@@ -10,9 +10,12 @@ import mmcv
 import numpy as np
 from mmcv import Config, DictAction
 
-from mmdet.core.utils import mask2ndarray
-from mmdet.core.visualization import imshow_det_bboxes
-from mmdet.datasets.builder import build_dataset
+# from mmdet.core.utils import mask2ndarray
+from mmdet.models.utils import mask2ndarray
+# from mmdet.core.visualization import imshow_det_bboxes
+from mmcv.visualization import imshow_det_bboxes
+# from mmdet.datasets.builder import build_dataset
+from .coco.dataset import build_dataset
 
 
 def cv2_imshow(img, title=None):
@@ -76,7 +79,7 @@ def display_once(
     bbox_color=(255, 102, 61),
     text_color=(255, 102, 61),
     show=True,
-    font_size=14,
+    font_scale=0.5,
     show_interval=0,
     skip_type=["DefaultFormatBundle", "ImageToTensor",
                "Normalize", "Collect", "FilterAnnotations"],
@@ -131,7 +134,7 @@ def display_once(
             gt_masks,
             class_names=dataset.CLASSES,
             show=False,
-            font_size=font_size,
+            font_scale=font_scale,
             wait_time=show_interval,
             bbox_color=bbox_color,
             text_color=text_color,

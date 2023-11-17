@@ -5,8 +5,10 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-from mmdet.core.visualization import imshow_det_bboxes
-from mmdet.core.utils import mask2ndarray
+# from mmdet.core.utils import mask2ndarray
+from mmdet.models.utils import mask2ndarray
+# from mmdet.core.visualization import imshow_det_bboxes
+from mmcv.visualization import imshow_det_bboxes
 import mmcv
 
 from .encoder import dump
@@ -214,10 +216,9 @@ def show_item(dataset, item_id, bbox_color=(255, 102, 61), text_color=(255, 102,
             item["img"],
             gt_bboxes,
             gt_labels,
-            gt_masks,
             class_names=class_names,
             show=False,
-            font_size=14,
+            font_scale=0.5,
             wait_time=0,
             bbox_color=bbox_color,
             text_color=text_color,
