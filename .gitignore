@@ -13,3 +13,5 @@ tmp
 /.ipynb_checkpoints/*
 /sinara/__pycache__/*
 /sinara/.ipynb_checkpoints/*
+**/__pycache__/*
+**/.ipynb_checkpoints/*
