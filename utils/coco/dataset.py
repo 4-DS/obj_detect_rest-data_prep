@@ -1,4 +1,4 @@
-from .coco import load
+from .coco import load_coco_file
 # from mmdet.datasets import build_dataset
 
 
@@ -29,7 +29,7 @@ def build_dataset(cfg, default_args=None):
     return dataset
 
 
-def get_dataset(coco_file, pipeline, filter_empty_gt=False, classes=None):
+def get_coco_dataset(coco_file, pipeline, filter_empty_gt=False, classes=None):
     if classes is None:
         _coco_data = load(coco_file)
         classes = [_cat['name'] for _cat in _coco_data['categories']]

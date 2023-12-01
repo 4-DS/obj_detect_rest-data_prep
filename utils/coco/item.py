@@ -11,7 +11,7 @@ from mmdet.models.utils import mask2ndarray
 from mmcv.visualization import imshow_det_bboxes
 import mmcv
 
-from .encoder import dump
+from .encoder import dump_coco_file
 from .slicer import cut_by_max_size
 
 import logging
@@ -187,7 +187,7 @@ def item_to_coco(dataset, idx, output_dir, max_size, cat_ids, clases, overlap=0.
         return Exception('stop_on_error')
 
 
-def show_item(dataset, item_id, bbox_color=(255, 102, 61), text_color=(255, 102, 61), class_names=None, return_image=False, title=None, show_mask=False):
+def show_coco_dataset_item(dataset, item_id, bbox_color=(255, 102, 61), text_color=(255, 102, 61), class_names=None, return_image=False, title=None, show_mask=False):
     item = dataset[item_id]
     # print(item)
     

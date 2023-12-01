@@ -8,8 +8,8 @@ import numpy as np
 import datetime
 from tqdm import tqdm
 from .utils import get_files
-from .encoder import load
-from .item import show_item
+from .encoder import load_coco_file
+from .item import show_coco_dataset_item
 
 import logging
 logger = logging.getLogger(__name__)
@@ -92,7 +92,7 @@ def preview_coco_file(coco_file, img_folder=None, count=1, random=True, return_i
 
         try:
             _out.append(
-                show_item([item], 0, class_names=[
+                show_coco_dataset_item([item], 0, class_names=[
                           _cat['name'] for _cat in coco_data['categories']], return_image=return_image, title=image_title)
             )
         except Exception as e:
