@@ -1,6 +1,3 @@
-![interface data_prep](./imgs/data_prep_inteface.drawio.png)
-
-
 # Step CV-Pipeline: data_prep
 
 This CV-Pipeline component is designed for processing the dataset: checking and cleaning the dataset, transforming the markup, dividing dataset samples into train, valid and test, reviewing and processing data.

@@ -1,6 +1,3 @@
-![interface data_prep](./imgs/data_prep_inteface.drawio.png)
-
-
 # Step CV-Pipeline: data_prep
 
 Данная компонент CV-Pipeline предназначен для обработку датасета: проверка и чистка датасета, преобразования разметки, разделение на train, valid и test выборки датасетов, обзор и обработка данных.
