@@ -31,14 +31,14 @@
 
 ### Создать директорию для проекта (или использовать уже существующую)
 ```
-mkdir yolox_mmdet
-cd yolox_mmdet
+mkdir obj_detect_binary
+cd obj_detect_binary
 ```  
 
 ### склонировать репозиторий model_prep
 ```
-git clone --recurse-submodules https://gitlab.com/yolox_mmdet/data_prep.git {model_prep}
-cd model_prep
+git clone --recurse-submodules https://github.com/4-DS/obj_detect_binary-data_prep.git {dir_for_data_prep}
+cd {dir_for_data_prep}
 ```  
 
 ### запустить шаг CV-Pipeline:model_prep

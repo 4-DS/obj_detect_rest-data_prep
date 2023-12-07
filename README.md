@@ -30,14 +30,14 @@ annotation files for the test dataset and the necessary configuration file to ru
 
 ### Create a directory for the project (or use an existing one)
 ```
-mkdir yolox_mmdet
-cd yolox_mmdet
+mkdir obj_detect_binary
+cd obj_detect_binary
 ```  
 
 ### clone the repository: data_prep
 ```
-git clone --recurse-submodules https://gitlab.com/yolox_mmdet/data_prep.git {data_prep}
-cd model_train
+git clone --recurse-submodules https://github.com/4-DS/obj_detect_binary-data_prep.git {dir_for_data_prep}
+cd {dir_for_data_prep}
 ```  
 
 ### run step CV-Pipeline:data_prep
