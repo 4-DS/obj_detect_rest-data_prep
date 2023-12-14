@@ -20,13 +20,13 @@ test dataset
 
 ### Create a directory for the project (or use an existing one)
 ```
-mkdir obj_detect_binary
-cd obj_detect_binary
+mkdir obj_detect_rest
+cd obj_detect_rest
 ```  
 
 ### clone the repository: data_prep
 ```
-git clone --recurse-submodules https://github.com/4-DS/obj_detect_binary-data_prep.git {dir_for_data_prep}
+git clone --recurse-submodules https://github.com/4-DS/obj_detect_rest-data_prep.git {dir_for_data_prep}
 cd {dir_for_data_prep}
 ```  
 
