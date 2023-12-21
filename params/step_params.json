@@ -5,10 +5,7 @@
         "pipeline_name":"obj_detect",
         "zone_name":"test"
     },
-    "step_params":
-    {
-        "step_name": "data_prep"
-    },
+    "step_params": {},
     "substeps_params":
     [        
         {
