@@ -1,0 +1,20 @@
+{
+    "pipeline_params":
+    {
+        "env_name":"user",
+        "pipeline_name":"obj_detect_rest",
+        "zone_name":"test"
+    },
+    "step_params": {},
+    "substeps_params":
+    [        
+        {
+            "substep_name":"data_prep.ipynb",
+            "substep_params":
+            {
+                "FILTER_EMPTY_GT":false,
+                "MIN_OBJECT_SIZE":5
+            }
+        }
+    ]
+}
